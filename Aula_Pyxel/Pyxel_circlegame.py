@@ -34,7 +34,6 @@ def start_game():
 
     if pyxel.frame_count > 30 * 5:
         pyxel.game_over = True
-        pyxel.text(80, 60, "GAME OVER!", pyxel.COLOR_WHITE)
         
     if not pyxel.game_over:
         if not pyxel.sleep1:
@@ -72,6 +71,8 @@ def drawn():
         color = COLOR_ACTIVE
     pyxel.circ(pyxel.x3, pyxel.y3, RADIUS, color)
 
+if pyxel.game_over:
+   pyxel.text(80, 60, "GAME OVER!", pyxel.COLOR_WHITE)
 
 pyxel.mouse(True)
 pyxel.run(start_game, drawn)
